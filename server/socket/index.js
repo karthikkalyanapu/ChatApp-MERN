@@ -14,10 +14,14 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: '*', //Allow requests from any origin
+        origin: 'https://chat-forfun.netlify.app', //Allow requests from any origin
         credentials: true
     }
 })
+
+// Handle preflight requests for all routes
+app.options('*', cors());
+
 
 const onlineUser = new Set();
 

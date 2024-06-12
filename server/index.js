@@ -11,9 +11,11 @@ const { app, server } = require('./socket/index.js')
 
 
 app.use(cors({
-    origin: '*', //Allow requests from any origin
+    origin: 'https://chat-forfun.netlify.app', //Allow requests from any origin
     credentials: true
 }));
+
+app.options('*', cors());
 
 
 app.use(express.json())
