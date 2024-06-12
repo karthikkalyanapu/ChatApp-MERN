@@ -11,7 +11,7 @@ const { app, server } = require('./socket/index.js')
 
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: '*', //Allow requests from any origin
     credentials: true
 }));
 
