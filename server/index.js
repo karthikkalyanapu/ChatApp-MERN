@@ -9,13 +9,12 @@ const { app, server } = require('./socket/index.js')
 
 // const app = express();
 
+const allowedOrigin = process.env.FRONTEND_URL || '*'; // Fallback to '*' if environment variable is not set
 
 app.use(cors({
-    origin: 'https://chat-forfun.netlify.app', //Allow requests from any origin
+    origin:  allowedOrigin, //Allow requests from any origin
     credentials: true
 }));
-
-app.options('*', cors());
 
 
 app.use(express.json())
